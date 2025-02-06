@@ -1,5 +1,5 @@
 # Introduction
-This package can send control commands to a real Go1 robot from ROS2. You can do low-level control (namely, control all joints of the robot) and high-level control (namely, control the walking direction and speed of robot).
+This package can send control commands to a real Go1 robot from ROS2. You can do low-level control (namely, control all joints of the robot) and high-level control (namely, control the walking direction and speed of the robot).
 
 This version is suitable for unitree_legged_sdk v3.5.11.
 
@@ -51,7 +51,7 @@ colcon build
 TODO
 
 # Run the package
-Before any low-level control, press L2+A on the controller pad to lock the standing/lying down robot position and then press L1+L2+START to tell the robot to accept joint-level (a.k.a. low-level) control.
+Before any low-level control, press L2+A on the controller pad to lock the robot position and then press L1+L2+START to tell the robot to accept joint-level control.
 
 First, source the `unitree_ros2_to_real` package:
     
