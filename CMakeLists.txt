@@ -1,13 +1,9 @@
 cmake_minimum_required(VERSION 3.5)
 project(unitree_legged_real)
 
-
-
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
-
 find_package(ros2_unitree_legged_msgs REQUIRED)
-
 
 message("-- CMAKE_SYSTEM_PROCESSOR: ${CMAKE_SYSTEM_PROCESSOR}")
 if("${CMAKE_SYSTEM_PROCESSOR}" MATCHES "x86_64.*")
@@ -15,17 +11,14 @@ if("${CMAKE_SYSTEM_PROCESSOR}" MATCHES "x86_64.*")
 else()
   set(ARCH arm64)
 endif()
+
 set(EXTRA_LIBS -pthread libunitree_legged_sdk_${ARCH}.so lcm)
-
-
 set(CMAKE_CXX_FLAGS "-O3")
 
 include_directories(
     include
     ${CMAKE_SOURCE_DIR}/unitree_legged_sdk-master/include
 )
-
-
 
 link_directories(${CMAKE_SOURCE_DIR}/unitree_legged_sdk-master/lib)
 
@@ -48,8 +41,9 @@ install(TARGETS
     DESTINATION lib/${PROJECT_NAME}
 )
 
+install(DIRECTORY
+    ${CMAKE_SOURCE_DIR}/unitree_legged_sdk-master/lib/
+    DESTINATION lib
+)
+
 ament_package()
-
-
-
-
